@@ -2,22 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>3‑Minute Firework Show</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fireworks Message Show</title>
 
+  <!-- Bubble font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Make the canvas fill the entire window */
+    html, body {
+      margin: 0; 
+      padding: 0; 
+      overflow: hidden; 
+      background-color: black;
+      font-family: 'Fredoka One', cursive;
+      height: 100%;
+      width: 100%;
+    }
+    canvas {
+      display: block;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: black;
+    }
+  </style>
+</head>
 <body>
+  <!-- The canvas for fireworks -->
   <canvas id="canvas"></canvas>
 
-  <!-- Overlay that appears after 3 minutes -->
-  <div id="overlay">
-    <h1>🎆 Grande Finale 🎆</h1>
-    <p>Thanks for watching!</p>
-    <button id="replay">Replay show</button>
-  </div>
-
+  <!-- Link to the script.js -->
   <script src="script.js"></script>
 </body>
 </html>
