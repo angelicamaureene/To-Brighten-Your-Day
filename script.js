@@ -61,15 +61,26 @@ const messages = [
   "SMART",
   "AWESOME",
   "CLEVER",
-  "BREATH TAKING",
+  "BREATHTAKING",
   "INTELLIGENT",
   "MAJESTIC",
   "MINDBLOWING",
   "BEAUTIFUL",
-  "ABSOLUTELY THE PRETTIEST GIRL IN THE WORLD",
-  "THESE FIREWORKS SHINE BRIGHT",
+  "ABSOLUTELY",
+  "THE PRETTIEST",
+  "GIRL",
+  "IN THE",
+  "WORLD",
+  "THESE", 
+  "FIREWORKS",
+  "SHINE",
+  "BRIGHT",
   "BUT YOU...",
-  "You my Varada, shine the brightest"
+  "You",
+  "my Varada,",
+  "shine",
+  "the",
+  "brightest"
 ];
 
 // Particle class
