@@ -2,38 +2,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Prevent user zoom and be sure the layout fits the device pixel‑perfectly -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
   <title>Fireworks Message Show</title>
 
-  <!-- Bubble font from Google Fonts -->
+  <!-- Bubble font -->
   <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
 
   <style>
-    /* Make the canvas fill the entire window */
+    /* Fill the screen, hide scrollbars */
     html, body {
-      margin: 0; 
-      padding: 0; 
-      overflow: hidden; 
-      background-color: black;
-      font-family: 'Fredoka One', cursive;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: #000;   /* fallback while JS loads */
       height: 100%;
       width: 100%;
+      font-family: 'Fredoka One', cursive;
+      -webkit-tap-highlight-color: transparent; /* no blue tap flash on iOS */
     }
     canvas {
-      display: block;
       position: fixed;
       top: 0; left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: black;
+      display: block;
+      background: #000;   /* just in case */
     }
   </style>
 </head>
-<body>
-  <!-- The canvas for fireworks -->
-  <canvas id="canvas"></canvas>
 
-  <!-- Link to the script.js -->
+<body>
+  <canvas id="canvas"></canvas>
   <script src="script.js"></script>
 </body>
 </html>
+
