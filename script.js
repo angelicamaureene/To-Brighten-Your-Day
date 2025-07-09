@@ -66,8 +66,8 @@ class Particle {
   constructor(x, y, color, life=140) {
     this.x = x;
     this.y = y;
-    this.vx = (Math.random()-0.5)*0.35;
-    this.vy = (Math.random()-0.5)*0.35;
+    this.vx = (Math.random()-0.5)*0.2;
+    this.vy = (Math.random()-0.5)*0.2;
     this.life = life;
     this.age  = 0;
     this.base = color;
@@ -150,7 +150,7 @@ function spawnMessageFireworks(text) {
             startX + x + (Math.random()-0.5)*jitter,
             startY + y + (Math.random()-0.5)*jitter,
             MSG_COLOR,
-            220
+            360
           )
         );
       }
