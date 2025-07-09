@@ -21,6 +21,37 @@ const PARTICLE_DENSITY = 6; // sample every 6 pixels horizontally and vertically
 const FONT_FAMILY = "'Fredoka One', cursive";
 const FONT_SIZE = 120; // px, adjust for size of text fireworks
 const FONT_COLOR = "white"; // just for offscreen canvas drawing (invisible)
+// Add this near the top with other config constants:
+const RANDOM_FIREWORK_COLORS = [
+  "rgba(255, 69, 0, 0.8)",      // orange-red
+  "rgba(30, 144, 255, 0.8)",    // dodger blue
+  "rgba(255, 215, 0, 0.8)",     // gold
+  "rgba(50, 205, 50, 0.8)",     // lime green
+  "rgba(138, 43, 226, 0.8)",    // blue violet
+  "rgba(255, 105, 180, 0.8)",   // hot pink
+  "rgba(255, 140, 0, 0.8)"      // dark orange
+];
+
+// Updated spawnRandomFirework function:
+function spawnRandomFirework() {
+  const x = Math.random() * canvas.width;
+  const y = Math.random() * canvas.height * 0.7 + canvas.height * 0.15;
+  const count = 20 + Math.floor(Math.random() * 30);
+  for (let i = 0; i < count; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = Math.random() * 3 + 2;
+    const vx = Math.cos(angle) * speed;
+    const vy = Math.sin(angle) * speed;
+
+    // Pick a random color from palette
+    const color = RANDOM_FIREWORK_COLORS[Math.floor(Math.random() * RANDOM_FIREWORK_COLORS.length)];
+
+    const p = new Particle(x, y, color, 80 + Math.random() * 40);
+    p.vx = vx;
+    p.vy = vy;
+    particles.push(p);
+  }
+}
 
 // Messages to show
 const messages = [
