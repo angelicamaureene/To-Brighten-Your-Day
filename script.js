@@ -208,13 +208,16 @@ function loop(t){
 
   if(!msgStart) msgStart = t;
 
-  if (t - msgStart < 60) {
+  if (!window.lastMsgIndexFired || window.lastMsgIndexFired !== msgIndex) {
   spawnMessageFireworks(messages[msgIndex]);
+  window.lastMsgIndexFired = msgIndex;
 }
+
 if (t - msgStart > MESSAGE_TIME) {
   msgIndex = (msgIndex + 1) % messages.length;
   msgStart = t;
 }
+
 
 
   /* Update & draw particles */
