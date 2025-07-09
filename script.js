@@ -99,7 +99,7 @@ const FONT_FAMILY = "'Fredoka One', cursive";
 /* Determine a font size that fits WIDTH*0.9, add line‑wrapping if needed */
 function renderToOffscreen(text) {
   const maxWidth = canvas.width*0.9;
-  let fontSize   = Math.min(120, canvas.width/6);        // start guess
+  let fontSize = Math.min(80, canvas.width / 10);
 
   // keep shrinking until single‑line fits
   offCtx.font = `${fontSize}px ${FONT_FAMILY}`;
@@ -208,21 +208,14 @@ function loop(t){
 
   if(!msgStart) msgStart = t;
 
-  if(!pausing){
-    if(t - msgStart < 60) {                  // first frame of the message
-      spawnMessageFireworks(messages[msgIndex]);
-    }
-    if(t - msgStart > MESSAGE_TIME){
-      pausing  = true;
-      pauseEnd = t + PAUSE_MIN + Math.random()*(PAUSE_MAX-PAUSE_MIN);
-    }
-  } else {
-    if(t > pauseEnd){
-      pausing  = false;
-      msgStart = t;
-      msgIndex = (msgIndex+1) % messages.length;
-    }
-  }
+  if (t - msgStart < 60) {
+  spawnMessageFireworks(messages[msgIndex]);
+}
+if (t - msgStart > MESSAGE_TIME) {
+  msgIndex = (msgIndex + 1) % messages.length;
+  msgStart = t;
+}
+
 
   /* Update & draw particles */
   for(let i=particles.length-1;i>=0;i--){
